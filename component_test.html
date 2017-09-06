@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+    <title>FIS3 demo</title>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no">
+
+    <link rel="stylesheet" type="text/css" href="./static/common.css">
+    <link rel="stylesheet" type="text/css" href="./static/index.css">
+    <link rel="stylesheet" type="text/css" href="./static/test.less">
+</head>
+
+<body>
+    <script type="text/javascript" src="/static/lib/mod.js"></script>
+
+    <div id="app" v-cloak>
+
+        <div class="component">
+            测试 {{test}}
+        </div>
+
+
+        <br />
+
+        <!-- 组件模式1 全局注册  -->
+        <!-- <my-component-1> </my-component> -->
+
+        <br />
+
+        <!-- 组件模式2 局部注册 变量传入  -->
+        <my-component-2> </my-component-2>
+
+        <br />
+
+        <!-- 组件模式2 直接写入  -->
+        <my-component-3 :message="txt"> </my-component-3>
+
+        <br />
+
+        <my-component-4 :message="txt"> </my-component-4>
+        <my-component-4 :message="txt"> </my-component-4>
+        <my-component-4 :message="txt"> </my-component-4>
+
+        <br />
+        <br />
+
+        <!--  require 引入 -->
+        <vue_component_mode> </vue_component_mode>
+
+        <br />
+
+        <!-- 三级子组件，数据传递关系 -->
+        <my-component-5   @success_2="childEvent_2"> </my-component-5>
+
+    </div>
+
+</body>
+
+<!-- 把css，js插到对应指定位置 fis -->
+<!--STYLE_PLACEHOLDER-->
+<!--SCRIPT_PLACEHOLDER-->
+
+<!-- fis生成资源路径 -->
+<script type="text/javascript">var _map = __RESOURCE_MAP__;</script>
+
+<script type="text/javascript">
+
+
+    // 引入组件
+    var vue_component_mode = require('vue/vue_mode/vue_component_config.js');
+
+
+    // 注册 测试组件1，此方式是全局注册  注意：覆盖全部
+    Vue.component('my-component-1', {
+      template: '<div>测试组件1，此方式是全局注册</div>'
+    })
+
+
+
+    var Child = {
+      template: '<div>局部注册1</div>'
+    }
+
+
+    // 直接注册使用 或者如下 子组件引入
+    Vue.component(vue_component_mode.name, vue_component_mode);
+
+    new Vue({
+
+        el: '#app',
+
+        data: {
+            test : '1',
+            txt : "这里是父组件的信息"
+        },
+
+
+        methods :
+        {
+            childEvent_2(ret)
+            {
+                var self = this;
+                console.log('第2级组件触发');
+                console.log(ret);
+            }
+
+        },
+
+
+        components: {
+            'my-component-2': Child,
+
+            'my-component-3': {
+                template: '<div>局部注册2 {{txt}}  {{message}}</div>',
+                props: ['message'],
+                data:  function (){
+                    return {
+                        txt : '这里是子组件信息'           
+                    }
+                }
+            },
+
+            'my-component-4': {
+                template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+                data:  function (){
+                    return {
+                        counter : 0           
+                    }
+                }
+            },
+
+
+            // 三级子组件，数据传递关系
+            'my-component-5': {
+                template: '<div>三级子组件 <my-component-5-son :message="txt" @success_3="childEvent_3"></my-component-5-son> </div>',
+                data:  function (){
+                    return {
+                        counter : 0 ,
+                        txt : '这里传',
+                        tips : ''
+                    }
+                },
+                components : 
+                {
+                    'my-component-5-son' : vue_component_mode,
+                },
+                methods :
+                {
+                    childEvent_3(ret)
+                    {
+                        var self = this;
+                        console.log('第3级组件触发');
+                        console.log(ret);
+                        self.tips = ret.tips
+                    }
+
+                },
+
+                mounted: function () {
+                    var self = this;
+                    self.$emit('success_2',{
+                        tips: self.tips
+                    })
+                }
+            }
+        }
+
+
+        
+
+    });
+
+
+</script>
+
+
+</html>
