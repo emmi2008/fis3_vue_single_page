@@ -11,21 +11,21 @@ fis.hook('module', {
 
 
 fis.match('*.less', {
-  // fis-parser-less 插件进行解析
-  parser: fis.plugin('less'),
-  // .less 文件后缀构建后被改成 .css 文件
-  rExt: '.css'
+    // fis-parser-less 插件进行解析
+    parser: fis.plugin('less'),
+    // .less 文件后缀构建后被改成 .css 文件
+    rExt: '.css'
 })
 
 fis.match('*', {
-  useHash: false
+    useHash: false
 });
 
 
 fis.match('::package', {
-  postpackager: fis.plugin('loader', {
-    allInOne: true
-  })
+    postpackager: fis.plugin('loader', {
+        allInOne: true
+    })
 });
 
 
@@ -268,7 +268,8 @@ fis.match(/^\/static\/(.*)$/i, {
 
 
 
-fis.match('*.{less,css}', {
+fis.match('*.{less,css}',
+        {
     // 给匹配到的文件分配属性 `useSprite`
     release: pub_url + '$&',
    url : pub_url + '$&',
@@ -343,8 +344,8 @@ fis.match('::packager', {
 
 
 fis.match('*', {
-  deploy: fis.plugin('local-deliver', {
-    to: '../pub'
-  })
+    deploy: fis.plugin('local-deliver', {
+        to: '../pub_fis3_vue_single_page'
+    })
 })
 

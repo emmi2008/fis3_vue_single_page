@@ -1,0 +1,14 @@
+
+li {
+    list-style: none;
+    padding: 5px 0;/*no*/
+}
+
+
+#app{
+    padding: 25px 0;
+}
+
+.footer{
+    padding: 25px 0;
+}
