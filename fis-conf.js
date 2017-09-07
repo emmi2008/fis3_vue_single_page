@@ -1,12 +1,9 @@
-
 fis.hook('module', {
     mode: 'mod'
     /*paths : {
         'main': 'components/component/main' 
     }*/
 });
-
-
 
 
 
@@ -28,7 +25,6 @@ fis.match('::package', {
     })
 });
 
-
 // fis.match('*.js', {
 //   // fis-optimizer-uglify-js 插件进行压缩，已内置
 //   optimizer: fis.plugin('uglify-js')
@@ -38,7 +34,6 @@ fis.match('*.css', {
   // fis-optimizer-clean-css 插件进行压缩，已内置
   optimizer: fis.plugin('clean-css')
 });
-
 
 
 // 启用 fis-spriter-csssprites 插件
@@ -65,7 +60,6 @@ fis.match('*.css', {
 
 var pub_url = '.';
 
-
 // fis.match('*.{js,css,png,jpg,gif}', {
 //     // useHash: true, // 开启 md5 戳
 //     //发布到/static/pic/xxx目录下
@@ -82,7 +76,6 @@ fis.match('*.{png,jpg,gif}', {
     url : pub_url + '$&'
 });
 
-
 // fis.match('*.{css,less}', {
 //   packTo: '/static/aio.css',
 //   domain:'.'
@@ -90,16 +83,10 @@ fis.match('*.{png,jpg,gif}', {
 // 
 
 
-
-
-
-
 // fis.match('*.js', {
 //   packTo: '/static/aio.js',
 //   domain:'.'
 // });
-
-
 
 
 // fis.match("**.js", {
@@ -109,15 +96,12 @@ fis.match('*.{png,jpg,gif}', {
 // });
 
 
-
-
 // fis.match('static/component_modules/jquery-3.2.1.js', {
 //     id: 'jquery',
 //     isMod: true,
 //     release:  '$&',
 //     domain:'.'
 // });
-
 
 
 // vue组件本身配置
@@ -148,7 +132,6 @@ fis.match('static/vue/vue_mode/**.vue', {
 
 });
 
-
 // vue组件中的sass片段处理
 fis.match('static/vue/vue_mode/**.vue:less', {
   rExt: 'css',
@@ -170,12 +153,16 @@ fis.match('static/vue/vue_mode/**.vue:js', {
 })
 
 
-
-
-
-fis.match('static/lib/**.js', {
-  packTo: 'static/lib/all.js',
-  domain:'.'
+// fis.match('static/lib/**.js', {
+//   packTo: 'static/lib/all.js',
+//   domain:'.'
+// });
+// 
+fis.match("static/lib/**.js", {
+    isMod: false,
+    useMap: true,
+    release:  '$&',
+    domain:'.'
 });
 
 
@@ -213,15 +200,12 @@ fis.match("static/vue/**.js", {
 
 
 
-
 fis.match("static/use/**.js", {
     isMod: true,
     useMap: true,
     release:  '$&',
     domain:'.'
 });
-
-
 
 
 
@@ -241,7 +225,6 @@ fis.match('*.es', {
 fis.match(/^\/static\/(.*)$/i, {
     id : '$1'
 });
-
 
 
 // fis.match('::package', {
@@ -345,7 +328,7 @@ fis.match('::packager', {
 
 fis.match('*', {
     deploy: fis.plugin('local-deliver', {
-        to: '../pub_fis3_vue_single_page'
+        to: '../fis3_vue_single_page_pub'
     })
 })
 
