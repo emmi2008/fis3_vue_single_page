@@ -69,6 +69,19 @@
         <!-- 三级子组件，数据传递关系 -->
         <my-component-5   @success_2="childEvent_2"> </my-component-5>
 
+
+        <br />
+        <br />
+        <!-- 组件 单个 Slot  -->
+
+        <div>
+          <h1>我是父组件的标题</h1>
+          <my-component-6>
+            <p>这是一些初始内容</p>
+            <p>这是更多的初始内容</p>
+          </my-component-6>
+        </div>
+
     </div>
 
 </body>
@@ -179,7 +192,19 @@
                         tips: self.tips
                     })
                 }
+            },
+
+
+            'my-component-6': {
+                template: '<div><h2>我是子组件的标题</h2><slot>只有在没有要分发的内容时才会显示。</slot></div>',
+                props: ['message'],
+                data:  function (){
+                    return {
+        
+                    }
+                }
             }
+
         }
 
 
