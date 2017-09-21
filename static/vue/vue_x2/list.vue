@@ -1,26 +1,17 @@
 <template>
     <div>
-        <div class='mod'>
-            增加
-        </div>
-
-
-        <div class='mod'>
-            删除
-        </div>
+        <ul class="list clearfix">
+            <li v-for="item in list">
+                序列号：{{item.num}}
+                <br/>
+                姓名：{{item.name}}
+            </li>
+        </ul>   
     </div>
 </template>
 
 <style lang='less'>
-.mod{
-    width:80px;
-    height:40px;
-    line-height:40px;
-    background:#666;
-    color:#fff;
-    text-align: center;
-    margin:15px 0;
-}
+
 </style>
 
 <script type='text/babel'>
@@ -44,7 +35,9 @@
         },
         computed:
         {
-
+            list() {
+              return this.$store.state.list
+            },
         },
         methods :
         {

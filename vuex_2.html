@@ -31,16 +31,10 @@
 
         <!-- 引入头部组件 -->
         <c_header></c_header>
+        <c_list></c_list>
 
         <br />
         <br />
-
-        <div class="component">测试{{ count }}</div>
-
-        <p>
-            <button @click="increment">+</button>
-            <button @click="decrement">-</button>
-        </p>
 
     </div>
 
@@ -58,7 +52,9 @@
     const store = require('vue/vue_x2/store.js');
 
     // 引入组件
-    const header = require('vue/vue_x2/header_config.js');
+    // 
+    const c_header = require('vue/vue_x2/header_config.js');
+    const c_list = require('vue/vue_x2/list_config.js');
 
 
 
@@ -73,17 +69,11 @@
         },
         methods: {
 
-            increment () {
-              store.commit('increment')
-            },
-
-            decrement () {
-                store.commit('decrement')
-            }
         },
         components : 
         {
-            'c_header' : header
+            'c_header' : c_header,
+            'c_list' : c_list
         },
     })
 
