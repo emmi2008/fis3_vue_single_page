@@ -1,13 +1,11 @@
 <template>
     <div>
-        <div class='mod' @click="add">
-            增加
-        </div>
+        <div>请输入姓名：</div>
+        <textarea   v-model="name_txt" class="textarea-class"  :value="activeNoteText"  @input="editorNote" ></textarea>
+        <br/>
 
-
-        <div class='mod' @click="del">
-            删除 
-        </div>
+        <div class='mod' @click="add">增加</div>
+        <div class='mod' @click="del">删除</div>
     </div>
 </template>
 
@@ -20,6 +18,14 @@
     color:#fff;
     text-align: center;
     margin:15px 0;
+    display: inline-block;
+    cursor: pointer;
+}
+.add{
+    cursor: pointer;
+}
+.del{
+    cursor: pointer;
 }
 </style>
 
@@ -44,23 +50,36 @@
         },
         computed:
         {
+            name_txt() {
+                return this.$store.state.name_txt
+            },
 
+            activeNoteText(){
+                return this.$store.getters.name_txt
+            }
         },
         methods :
         {
             add()
-            {
+            {   
+
                 var self = this;
                 console.log('增加');
-                this.$store.dispatch('add')
+                self.$store.dispatch('add')
             },
             del()
             {
                 var self = this;
                 console.log('删除');
-                this.$store.dispatch('del')
+                self.$store.dispatch('del')
             },
-            
+
+            editorNote(e) {
+                var self = this;
+                console.log('修改');
+                self.$store.dispatch('editNote', e.target.value)
+            }
+
         }
     }
 </script>

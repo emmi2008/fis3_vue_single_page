@@ -2,8 +2,8 @@
     <div>
         <ul class="list clearfix">
             <li v-for="(item, index) in list">
-                序列号：{{index+1}}
-                <br/>
+           
+               
                 姓名：{{item.name}}  <span class="del" @click="del_cur(index)">删除当前</span>
 
 
@@ -14,11 +14,12 @@
 
 <style lang='less'>
     li{
-        margin-bottom:10px;
+        margin-bottom:5px;
     }
     .del{
         margin-left:15px;
     }
+
 </style>
 
 <script type='text/babel'>

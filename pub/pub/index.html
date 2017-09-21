@@ -58,7 +58,7 @@ require.resourceMap({
 <script type="text/javascript" src="./static/vue/vue_mode/area.js"></script>
 <script type="text/javascript" src="./static/vue/vue_mode/index.js"></script>
 <script type="text/javascript" src="./static/vue/vue_demo.js"></script>
-<script type="text/javascript" charset="utf-8" src="http://172.16.36.2:8132/livereload.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://172.18.6.208:8132/livereload.js"></script>
 <script type="text/javascript">/*resourcemap*/
 require.resourceMap({
   "res": {
@@ -84,6 +84,211 @@ require.resourceMap({
 <script type="text/javascript" src="./pub/static/use/test.js"></script>
 <script type="text/javascript">var _map = {
     "res": {
+        "pub/static/about.js": {
+            "uri": "/pub/static/about.js",
+            "type": "js"
+        },
+        "pub/static/component_modules/director.js": {
+            "uri": "./pub/static/component_modules/director.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/component_modules/director"
+            }
+        },
+        "pub/static/component_modules/jquery-3.2.1.js": {
+            "uri": "./pub/static/component_modules/jquery-3.2.1.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/component_modules/jquery-3.2.1"
+            }
+        },
+        "pub/static/css/about.css": {
+            "uri": "./pub/static/css/about.css",
+            "type": "css"
+        },
+        "pub/static/css/common.css": {
+            "uri": "./pub/static/css/common.css",
+            "type": "css"
+        },
+        "pub/static/css/index.css": {
+            "uri": "./pub/static/css/index.css",
+            "type": "css"
+        },
+        "pub/static/css/test.css": {
+            "uri": "./pub/static/css/test.css",
+            "type": "css"
+        },
+        "pub/static/lib/mod.js": {
+            "uri": "./pub/static/lib/mod.js",
+            "type": "js"
+        },
+        "pub/static/lib/vue.js": {
+            "uri": "./pub/static/lib/vue.js",
+            "type": "js"
+        },
+        "pub/static/lib/vuex.js": {
+            "uri": "./pub/static/lib/vuex.js",
+            "type": "js"
+        },
+        "pub/static/single/car.js": {
+            "uri": "./pub/static/single/car.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/single/car"
+            },
+            "deps": [
+                "single/engine.js"
+            ]
+        },
+        "pub/static/single/engine.js": {
+            "uri": "./pub/static/single/engine.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/single/engine"
+            }
+        },
+        "pub/static/single/hello2.js": {
+            "uri": "./pub/static/single/hello2.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/single/hello2"
+            },
+            "deps": [
+                "single/engine"
+            ]
+        },
+        "pub/static/use/hello.js": {
+            "uri": "./pub/static/use/hello.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/use/hello"
+            }
+        },
+        "pub/static/use/index.js": {
+            "uri": "./pub/static/use/index.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/use/index"
+            }
+        },
+        "pub/static/use/test.js": {
+            "uri": "./pub/static/use/test.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/use/test"
+            }
+        },
+        "pub/static/vue/article/article.css": {
+            "uri": "./pub/static/vue/article/article.css",
+            "type": "css"
+        },
+        "pub/static/vue/article/article.js": {
+            "uri": "./pub/static/vue/article/article.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/article/article"
+            }
+        },
+        "pub/static/vue/error/notfound.js": {
+            "uri": "./pub/static/vue/error/notfound.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/error/notfound"
+            }
+        },
+        "pub/static/vue/footer/footer.css": {
+            "uri": "./pub/static/vue/footer/footer.css",
+            "type": "css"
+        },
+        "pub/static/vue/footer/footer.js": {
+            "uri": "./pub/static/vue/footer/footer.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/footer/footer"
+            }
+        },
+        "pub/static/vue/home/home.css": {
+            "uri": "./pub/static/vue/home/home.css",
+            "type": "css"
+        },
+        "pub/static/vue/home/home.js": {
+            "uri": "./pub/static/vue/home/home.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/home/home"
+            }
+        },
+        "pub/static/vue/list/list.css": {
+            "uri": "./pub/static/vue/list/list.css",
+            "type": "css"
+        },
+        "pub/static/vue/list/list.js": {
+            "uri": "./pub/static/vue/list/list.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/list/list"
+            }
+        },
+        "pub/static/vue/vue_demo.js": {
+            "uri": "./pub/static/vue/vue_demo.js",
+            "type": "js",
+            "extras": {
+                "async": [
+                    "vue/article/article.js",
+                    "vue/error/notfound.js"
+                ],
+                "moduleId": "pub/static/vue/vue_demo"
+            },
+            "deps": [
+                "vue/footer/footer.js",
+                "vue/home/home.js",
+                "vue/list/list.js",
+                "component_modules/director.js",
+                "vue/vue_mode/index.js"
+            ]
+        },
+        "pub/static/vue/vue_mode/area.css": {
+            "uri": "./pub/static/vue/vue_mode/area.css",
+            "type": "css"
+        },
+        "pub/static/vue/vue_mode/area.js": {
+            "uri": "./pub/static/vue/vue_mode/area.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_mode/area"
+            }
+        },
+        "pub/static/vue/vue_mode/index.js": {
+            "uri": "./pub/static/vue/vue_mode/index.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_mode/index"
+            },
+            "deps": [
+                "vue/vue_mode/area.vue"
+            ]
+        },
+        "pub/static/vue/vue_mode/vue_component_config.js": {
+            "uri": "./pub/static/vue/vue_mode/vue_component_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_mode/vue_component_config"
+            },
+            "deps": [
+                "vue/vue_mode/vue_component_mode.vue"
+            ]
+        },
+        "pub/static/vue/vue_mode/vue_component_mode.css": {
+            "uri": "./pub/static/vue/vue_mode/vue_component_mode.css",
+            "type": "css"
+        },
+        "pub/static/vue/vue_mode/vue_component_mode.js": {
+            "uri": "./pub/static/vue/vue_mode/vue_component_mode.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_mode/vue_component_mode"
+            }
+        },
         "about.js": {
             "uri": "/static/about.js",
             "type": "js"
@@ -285,6 +490,309 @@ require.resourceMap({
         "vue/vue_mode/vue_component_mode.css": {
             "uri": "./static/vue/vue_mode/vue_component_mode.css",
             "type": "css"
+        },
+        "vue/vue_x2/header_config.js": {
+            "uri": "./static/vue/vue_x2/header_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/vue_x2/header_config"
+            },
+            "deps": [
+                "vue/vue_x2/header.vue"
+            ]
+        },
+        "vue/vue_x2/header.vue": {
+            "uri": "./static/vue/vue_x2/header.js",
+            "type": "js",
+            "deps": [
+                "vue/vue_x2/header.css"
+            ]
+        },
+        "vue/vue_x2/header.css": {
+            "uri": "./static/vue/vue_x2/header.css",
+            "type": "css"
+        },
+        "vue/vue_x2/list.vue": {
+            "uri": "./static/vue/vue_x2/list.js",
+            "type": "js",
+            "deps": [
+                "vue/vue_x2/list.css"
+            ]
+        },
+        "vue/vue_x2/list.css": {
+            "uri": "./static/vue/vue_x2/list.css",
+            "type": "css"
+        },
+        "vue/vue_x2/list_config.js": {
+            "uri": "./static/vue/vue_x2/list_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/vue_x2/list_config"
+            },
+            "deps": [
+                "vue/vue_x2/list.vue"
+            ]
+        },
+        "vue/vue_x2/store.js": {
+            "uri": "./static/vue/vue_x2/store.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/vue_x2/store"
+            }
+        },
+        "pub/pub/static/about.js": {
+            "uri": "/pub/pub/static/about.js",
+            "type": "js"
+        },
+        "pub/pub/static/component_modules/director.js": {
+            "uri": "./pub/pub/static/component_modules/director.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/component_modules/director"
+            }
+        },
+        "pub/pub/static/component_modules/jquery-3.2.1.js": {
+            "uri": "./pub/pub/static/component_modules/jquery-3.2.1.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/component_modules/jquery-3.2.1"
+            }
+        },
+        "pub/pub/static/css/about.css": {
+            "uri": "./pub/pub/static/css/about.css",
+            "type": "css"
+        },
+        "pub/pub/static/css/common.css": {
+            "uri": "./pub/pub/static/css/common.css",
+            "type": "css"
+        },
+        "pub/pub/static/css/index.css": {
+            "uri": "./pub/pub/static/css/index.css",
+            "type": "css"
+        },
+        "pub/pub/static/css/test.css": {
+            "uri": "./pub/pub/static/css/test.css",
+            "type": "css"
+        },
+        "pub/pub/static/lib/mod.js": {
+            "uri": "./pub/pub/static/lib/mod.js",
+            "type": "js"
+        },
+        "pub/pub/static/lib/vue.js": {
+            "uri": "./pub/pub/static/lib/vue.js",
+            "type": "js"
+        },
+        "pub/pub/static/single/car.js": {
+            "uri": "./pub/pub/static/single/car.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/single/car"
+            },
+            "deps": [
+                "single/engine.js"
+            ]
+        },
+        "pub/pub/static/single/engine.js": {
+            "uri": "./pub/pub/static/single/engine.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/single/engine"
+            }
+        },
+        "pub/pub/static/single/hello2.js": {
+            "uri": "./pub/pub/static/single/hello2.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/single/hello2"
+            },
+            "deps": [
+                "single/engine"
+            ]
+        },
+        "pub/pub/static/lib/vuex.js": {
+            "uri": "./pub/pub/static/lib/vuex.js",
+            "type": "js"
+        },
+        "pub/pub/static/use/hello.js": {
+            "uri": "./pub/pub/static/use/hello.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/use/hello"
+            }
+        },
+        "pub/pub/static/use/index.js": {
+            "uri": "./pub/pub/static/use/index.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/use/index"
+            }
+        },
+        "pub/pub/static/use/test.js": {
+            "uri": "./pub/pub/static/use/test.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/use/test"
+            }
+        },
+        "pub/pub/static/vue/article/article.css": {
+            "uri": "./pub/pub/static/vue/article/article.css",
+            "type": "css"
+        },
+        "pub/pub/static/vue/article/article.js": {
+            "uri": "./pub/pub/static/vue/article/article.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/article/article"
+            }
+        },
+        "pub/pub/static/vue/error/notfound.js": {
+            "uri": "./pub/pub/static/vue/error/notfound.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/error/notfound"
+            }
+        },
+        "pub/pub/static/vue/footer/footer.css": {
+            "uri": "./pub/pub/static/vue/footer/footer.css",
+            "type": "css"
+        },
+        "pub/pub/static/vue/vue_demo.js": {
+            "uri": "./pub/pub/static/vue/vue_demo.js",
+            "type": "js",
+            "extras": {
+                "async": [
+                    "vue/article/article.js",
+                    "vue/error/notfound.js"
+                ],
+                "moduleId": "pub/pub/static/vue/vue_demo"
+            },
+            "deps": [
+                "vue/footer/footer.js",
+                "vue/home/home.js",
+                "vue/list/list.js",
+                "component_modules/director.js",
+                "vue/vue_mode/index.js"
+            ]
+        },
+        "pub/pub/static/vue/footer/footer.js": {
+            "uri": "./pub/pub/static/vue/footer/footer.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/footer/footer"
+            }
+        },
+        "pub/pub/static/vue/home/home.css": {
+            "uri": "./pub/pub/static/vue/home/home.css",
+            "type": "css"
+        },
+        "pub/pub/static/vue/home/home.js": {
+            "uri": "./pub/pub/static/vue/home/home.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/home/home"
+            }
+        },
+        "pub/pub/static/vue/list/list.css": {
+            "uri": "./pub/pub/static/vue/list/list.css",
+            "type": "css"
+        },
+        "pub/pub/static/vue/list/list.js": {
+            "uri": "./pub/pub/static/vue/list/list.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/list/list"
+            }
+        },
+        "pub/pub/static/vue/vue_mode/area.css": {
+            "uri": "./pub/pub/static/vue/vue_mode/area.css",
+            "type": "css"
+        },
+        "pub/pub/static/vue/vue_mode/area.js": {
+            "uri": "./pub/pub/static/vue/vue_mode/area.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/vue_mode/area"
+            }
+        },
+        "pub/pub/static/vue/vue_mode/index.js": {
+            "uri": "./pub/pub/static/vue/vue_mode/index.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/vue_mode/index"
+            },
+            "deps": [
+                "vue/vue_mode/area.vue"
+            ]
+        },
+        "pub/pub/static/vue/vue_mode/vue_component_config.js": {
+            "uri": "./pub/pub/static/vue/vue_mode/vue_component_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/vue_mode/vue_component_config"
+            },
+            "deps": [
+                "vue/vue_mode/vue_component_mode.vue"
+            ]
+        },
+        "pub/pub/static/vue/vue_mode/vue_component_mode.css": {
+            "uri": "./pub/pub/static/vue/vue_mode/vue_component_mode.css",
+            "type": "css"
+        },
+        "pub/pub/static/vue/vue_mode/vue_component_mode.js": {
+            "uri": "./pub/pub/static/vue/vue_mode/vue_component_mode.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/pub/static/vue/vue_mode/vue_component_mode"
+            }
+        },
+        "pub/static/vue/vue_x2/header_config.js": {
+            "uri": "./pub/static/vue/vue_x2/header_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_x2/header_config"
+            },
+            "deps": [
+                "vue/vue_x2/header.vue"
+            ]
+        },
+        "pub/static/vue/vue_x2/header.css": {
+            "uri": "./pub/static/vue/vue_x2/header.css",
+            "type": "css"
+        },
+        "pub/static/vue/vue_x2/header.js": {
+            "uri": "./pub/static/vue/vue_x2/header.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_x2/header"
+            }
+        },
+        "pub/static/vue/vue_x2/list.css": {
+            "uri": "./pub/static/vue/vue_x2/list.css",
+            "type": "css"
+        },
+        "pub/static/vue/vue_x2/list_config.js": {
+            "uri": "./pub/static/vue/vue_x2/list_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_x2/list_config"
+            },
+            "deps": [
+                "vue/vue_x2/list.vue"
+            ]
+        },
+        "pub/static/vue/vue_x2/list.js": {
+            "uri": "./pub/static/vue/vue_x2/list.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_x2/list"
+            }
+        },
+        "pub/static/vue/vue_x2/store.js": {
+            "uri": "./pub/static/vue/vue_x2/store.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "pub/static/vue/vue_x2/store"
+            }
         }
     },
     "pkg": {}
