@@ -3,14 +3,14 @@
 
 
 
-### 单页主页切换
+## 单页主页切换
 ```bash
 vue，director.js作为Router
 ```
 预览地址： <a  target="_blank"  href="https://zky86.github.io/fis3_vue_single_page/pub/#hot/hot">点击预览</a>
 
 
-### vuex状态管理器
+## vuex状态管理器
 ```bash
 vuex，store
 ```
