@@ -3,33 +3,45 @@ module.exports = new Vuex.Store({
         list : [
             {
                 name : '张1',
-                cur : true,
-                num : 1
+                cur : true
             },
             {
                 name : '张2',
-                cur : false,
-                num : 2
+                cur : false
             },
             {
                 name : '张3',
-                cur : false,
-                num : 3
+                cur : false
             },
             {
                 name : '张4',
-                cur : false,
-                num : 4
+                cur : false
             },
             {
-                name : '张4',
-                cur : false,
-                num : 5
+                name : '张5',
+                cur : false
             }
         ]
     },
     
-    mutations: {
+    mutations:{
+        ['add'](state){
+
+            var item = 
+            {
+                name : '新建项目',
+                cur : false
+            };
+            state.list.push(item);
+        },
+        ['del'](state){
+            state.list.splice(state, 1);
+        },
+
+        ['del_cur'](state,index){
+            console.log(index);
+            state.list.splice(index, 1);
+        }
 
     },
 
@@ -38,5 +50,17 @@ module.exports = new Vuex.Store({
         list: function(state) {
             return state.list
         },
+    },
+
+    actions: {
+        add({commit}) {
+            commit('add')
+        },
+        del({commit}) {
+            commit('del')
+        },
+        del_cur({commit},index) {
+            commit('del_cur',index)
+        }
     }
 })

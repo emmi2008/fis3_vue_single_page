@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div class='mod'>
+        <div class='mod' @click="add">
             增加
         </div>
 
 
-        <div class='mod'>
-            删除
+        <div class='mod' @click="del">
+            删除 
         </div>
     </div>
 </template>
@@ -48,11 +48,19 @@
         },
         methods :
         {
-            // open()
-            // {
-            //     var self = this;
-    
-            // }
+            add()
+            {
+                var self = this;
+                console.log('增加');
+                this.$store.dispatch('add')
+            },
+            del()
+            {
+                var self = this;
+                console.log('删除');
+                this.$store.dispatch('del')
+            },
+            
         }
     }
 </script>
