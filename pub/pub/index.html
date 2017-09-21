@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+    <title>FIS3 demo</title>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no">
+
+    <!-- 测试less编译 -->
+
+    <link rel="stylesheet" type="text/css" href="./static/vue/vue_mode/area.css" />
+    <link rel="stylesheet" type="text/css" href="./pub/static/vue/vue_mode/area.css" />
+    <link rel="stylesheet" type="text/css" href="./pub/static/css/test.css" />
+    <link rel="stylesheet" type="text/css" href="./pub/static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./pub/static/css/index.css" />
+</head>
+
+<body>
+
+    <!-- 基础库 -->    
+
+    <!-- 测试es6 编译 -->
+
+    <img src="./pub/static/images/1.jpg" />
+    <img src="./pub/static/images/2.jpg" />
+
+
+    <div id="app" v-cloak>
+
+            <!-- 根据  currentView 值变化来切换vue组件 -->
+            <component :is="currentView"></component>
+            <!-- <div v-component="{{currentView}}"></div>-->
+
+            <vue_mode_name   ref="area"  ></vue_mode_name> 
+
+    </div><script type="text/javascript" src="./pub/static/lib/mod.js"></script>
+<script type="text/javascript">/*resourcemap*/
+require.resourceMap({
+  "res": {
+    "vue/article/article": {
+      "url": "./static/vue/article/article.js",
+      "type": "js"
+    },
+    "vue/error/notfound": {
+      "url": "./static/vue/error/notfound.js",
+      "type": "js"
+    }
+  },
+  "pkg": {}
+});</script>
+<script type="text/javascript" src="./static/vue/footer/footer.js"></script>
+<script type="text/javascript" src="./static/vue/home/home.js"></script>
+<script type="text/javascript" src="./static/vue/list/list.js"></script>
+<script type="text/javascript" src="./static/component_modules/director.js"></script>
+<script type="text/javascript" src="./static/vue/vue_mode/area.js"></script>
+<script type="text/javascript" src="./static/vue/vue_mode/index.js"></script>
+<script type="text/javascript" src="./static/vue/vue_demo.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://172.16.36.2:8132/livereload.js"></script>
+<script type="text/javascript">/*resourcemap*/
+require.resourceMap({
+  "res": {
+    "vue/article/article": {
+      "url": "./static/vue/article/article.js",
+      "type": "js"
+    },
+    "vue/error/notfound": {
+      "url": "./static/vue/error/notfound.js",
+      "type": "js"
+    }
+  },
+  "pkg": {}
+});</script>
+<script type="text/javascript" src="./pub/static/vue/footer/footer.js"></script>
+<script type="text/javascript" src="./pub/static/vue/home/home.js"></script>
+<script type="text/javascript" src="./pub/static/vue/list/list.js"></script>
+<script type="text/javascript" src="./pub/static/component_modules/director.js"></script>
+<script type="text/javascript" src="./pub/static/vue/vue_mode/area.js"></script>
+<script type="text/javascript" src="./pub/static/vue/vue_mode/index.js"></script>
+<script type="text/javascript" src="./pub/static/vue/vue_demo.js"></script>
+<script type="text/javascript" src="./pub/static/lib/vue.js"></script>
+<script type="text/javascript" src="./pub/static/use/test.js"></script>
+<script type="text/javascript">var _map = {
+    "res": {
+        "about.js": {
+            "uri": "/static/about.js",
+            "type": "js"
+        },
+        "component_modules/director.js": {
+            "uri": "./static/component_modules/director.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component_modules/director"
+            }
+        },
+        "component_modules/jquery-3.2.1.js": {
+            "uri": "./static/component_modules/jquery-3.2.1.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "component_modules/jquery-3.2.1"
+            }
+        },
+        "css/about.css": {
+            "uri": "./static/css/about.css",
+            "type": "css"
+        },
+        "css/common.css": {
+            "uri": "./static/css/common.css",
+            "type": "css"
+        },
+        "css/index.css": {
+            "uri": "./static/css/index.css",
+            "type": "css"
+        },
+        "css/test.less": {
+            "uri": "./static/css/test.css",
+            "type": "css"
+        },
+        "lib/mod.js": {
+            "uri": "./static/lib/mod.js",
+            "type": "js"
+        },
+        "lib/vue.js": {
+            "uri": "./static/lib/vue.js",
+            "type": "js"
+        },
+        "lib/vuex.js": {
+            "uri": "./static/lib/vuex.js",
+            "type": "js"
+        },
+        "single/car.js": {
+            "uri": "./static/single/car.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "single/car"
+            },
+            "deps": [
+                "single/engine.js"
+            ]
+        },
+        "single/engine.js": {
+            "uri": "./static/single/engine.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "single/engine"
+            }
+        },
+        "single/hello2.js": {
+            "uri": "./static/single/hello2.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "single/hello2"
+            },
+            "deps": [
+                "single/engine.js"
+            ]
+        },
+        "use/hello.js": {
+            "uri": "./static/use/hello.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "use/hello"
+            }
+        },
+        "use/index.js": {
+            "uri": "./static/use/index.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "use/index"
+            }
+        },
+        "use/test.es": {
+            "uri": "./static/use/test.js",
+            "type": "js"
+        },
+        "vue/article/article.css": {
+            "uri": "./static/vue/article/article.css",
+            "type": "css"
+        },
+        "vue/article/article.js": {
+            "uri": "./static/vue/article/article.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/article/article"
+            }
+        },
+        "vue/error/notfound.js": {
+            "uri": "./static/vue/error/notfound.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/error/notfound"
+            }
+        },
+        "vue/footer/footer.css": {
+            "uri": "./static/vue/footer/footer.css",
+            "type": "css"
+        },
+        "vue/footer/footer.js": {
+            "uri": "./static/vue/footer/footer.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/footer/footer"
+            }
+        },
+        "vue/home/home.css": {
+            "uri": "./static/vue/home/home.css",
+            "type": "css"
+        },
+        "vue/home/home.js": {
+            "uri": "./static/vue/home/home.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/home/home"
+            }
+        },
+        "vue/list/list.css": {
+            "uri": "./static/vue/list/list.css",
+            "type": "css"
+        },
+        "vue/list/list.js": {
+            "uri": "./static/vue/list/list.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/list/list"
+            }
+        },
+        "vue/vue_demo.js": {
+            "uri": "./static/vue/vue_demo.js",
+            "type": "js",
+            "extras": {
+                "async": [
+                    "vue/article/article.js",
+                    "vue/error/notfound.js"
+                ],
+                "moduleId": "vue/vue_demo"
+            },
+            "deps": [
+                "vue/footer/footer.js",
+                "vue/home/home.js",
+                "vue/list/list.js",
+                "component_modules/director.js",
+                "vue/vue_mode/index.js"
+            ]
+        },
+        "vue/vue_mode/area.vue": {
+            "uri": "./static/vue/vue_mode/area.js",
+            "type": "js",
+            "deps": [
+                "vue/vue_mode/area.css"
+            ]
+        },
+        "vue/vue_mode/area.css": {
+            "uri": "./static/vue/vue_mode/area.css",
+            "type": "css"
+        },
+        "vue/vue_mode/index.js": {
+            "uri": "./static/vue/vue_mode/index.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/vue_mode/index"
+            },
+            "deps": [
+                "vue/vue_mode/area.vue"
+            ]
+        },
+        "vue/vue_mode/vue_component_config.js": {
+            "uri": "./static/vue/vue_mode/vue_component_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/vue_mode/vue_component_config"
+            },
+            "deps": [
+                "vue/vue_mode/vue_component_mode.vue"
+            ]
+        },
+        "vue/vue_mode/vue_component_mode.vue": {
+            "uri": "./static/vue/vue_mode/vue_component_mode.js",
+            "type": "js",
+            "deps": [
+                "vue/vue_mode/vue_component_mode.css"
+            ]
+        },
+        "vue/vue_mode/vue_component_mode.css": {
+            "uri": "./static/vue/vue_mode/vue_component_mode.css",
+            "type": "css"
+        }
+    },
+    "pkg": {}
+};
+
+    var test = require('vue/vue_demo.js');
+    // require(['single/engine.js']);
+    // console.log(test);
+    // console.log(require);
+    // var test = require('single/car');
+    // console.log(test);
+    // console.log(test.run(6));
+    // require.preload('hello.js');
+    
+</script>
+<script type="text/javascript" charset="utf-8" src="http://172.18.6.208:8132/livereload.js"></script></body>
+
+<!-- 把css，js插到对应指定位置 fis -->
+
+<!-- fis生成资源路径 -->
+
+</html>

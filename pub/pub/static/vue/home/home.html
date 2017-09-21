@@ -1,0 +1,33 @@
+<!-- 注意，组件模板最外层只能有一个大div包着，否则会报错  -->
+
+<div class="page-1">
+
+  <ul class="recommened-nav navigation clearfix">
+
+    <li data-name="trending_notes">
+      <a data-pjax="true" href="#hot/hot">热门文章</a>
+    </li>
+
+    <li data-name="recommended_notes" class="active">
+      <a data-pjax="true" href="#notes/today">今日看点</a>
+    </li>
+
+    <li data-name="subscription_notes">
+      <a data-pjax="true" href="#subscribe/my">我的订阅</a>
+    </li>
+
+  </ul>
+
+  <div class="a1"></div>
+  <div class="a2"></div>
+
+  <br />
+  <br />
+  <!-- 文章列表 -->
+  <c-list  :message="type"></c-list>
+  <br />
+  <br />
+
+  <c-footer></c-footer>
+
+</div>
