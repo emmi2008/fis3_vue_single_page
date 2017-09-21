@@ -3,7 +3,7 @@ module.exports = new Vuex.Store({
         list : [
             {
                 name : '张1',
-                favorite : true
+                favorite : false
             },
             {
                 name : '张2',
@@ -22,6 +22,12 @@ module.exports = new Vuex.Store({
     
     mutations:{
         ['add'](state){
+
+            if (!state.name_txt) 
+            {
+                alert('亲输入昵称！');
+                return ;
+            }
 
             var item = 
             {
@@ -80,9 +86,22 @@ module.exports = new Vuex.Store({
         },
 
         ['editNote'](state,txt){
-            console.log(txt);
+            // console.log(txt);
             state.name_txt = txt
+        },
+
+        ['fav'](state,index){
+            state.list[index]['favorite'] = true;
+            console.log(index);
+        },
+
+        ['cancel'](state,index){
+
+            var arr = state.list.filter(item => item.favorite);
+            arr[index]['favorite'] = false;
+            console.log(index);
         }
+
 
 
     },
@@ -110,6 +129,14 @@ module.exports = new Vuex.Store({
 
         editNote({commit}, text) {
           commit('editNote', text)
+        },
+
+        fav({commit}, index) {
+          commit('fav', index)
+        },
+
+        cancel({commit}, index) {
+          commit('cancel', index)
         }
     }
 })

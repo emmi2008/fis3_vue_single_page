@@ -29,16 +29,35 @@
 
     <div id="app" v-cloak>
 
+        <div class="sidebar">
         <!-- 引入头部组件 -->
-        <c_header></c_header>
-        <c_list></c_list>
+            <c_header></c_header>
+            <c_list></c_list>
+        </div>
+
+        <div class="favorite">
+            <c_list_fav></c_list_fav>
+        </div>
 
         <br />
         <br />
+
 
     </div>
 
 </body>
+
+    <style>
+    .sidebar{
+        float: left
+    } 
+    .favorite{
+
+        float: left;
+        margin: 20px 0 10px 100px;
+    }
+    </style>
+
 
     <!-- 把css，js插到对应指定位置 fis -->
     <!--STYLE_PLACEHOLDER-->
@@ -55,6 +74,7 @@
     // 
     const c_header = require('vue/vue_x2/header_config.js');
     const c_list = require('vue/vue_x2/list_config.js');
+    const c_list_fav = require('vue/vue_x2/c_list_fav_config.js');
 
 
 
@@ -73,7 +93,8 @@
         components : 
         {
             'c_header' : c_header,
-            'c_list' : c_list
+            'c_list' : c_list,
+            'c_list_fav' : c_list_fav
         },
     })
 

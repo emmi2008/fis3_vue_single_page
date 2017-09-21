@@ -10,7 +10,7 @@ module.exports = new Vuex.Store({
     state: {
         list: [{
             name: '张1',
-            favorite: true
+            favorite: false
         }, {
             name: '张2',
             favorite: false
@@ -23,6 +23,11 @@ module.exports = new Vuex.Store({
     },
 
     mutations: (_mutations = {}, _defineProperty(_mutations, 'add', function add(state) {
+
+        if (!state.name_txt) {
+            alert('亲输入昵称！');
+            return;
+        }
 
         var item = {
             name: '暂无昵称',
@@ -71,8 +76,18 @@ module.exports = new Vuex.Store({
         console.log(index);
         state.list.splice(index, 1);
     }), _defineProperty(_mutations, 'editNote', function editNote(state, txt) {
-        console.log(txt);
+        // console.log(txt);
         state.name_txt = txt;
+    }), _defineProperty(_mutations, 'fav', function fav(state, index) {
+        state.list[index]['favorite'] = true;
+        console.log(index);
+    }), _defineProperty(_mutations, 'cancel', function cancel(state, index) {
+
+        var arr = state.list.filter(function (item) {
+            return item.favorite;
+        });
+        arr[index]['favorite'] = false;
+        console.log(index);
     }), _mutations),
 
     getters: {
@@ -105,6 +120,18 @@ module.exports = new Vuex.Store({
             var commit = _ref4.commit;
 
             commit('editNote', text);
+        },
+
+        fav: function fav(_ref5, index) {
+            var commit = _ref5.commit;
+
+            commit('fav', index);
+        },
+
+        cancel: function cancel(_ref6, index) {
+            var commit = _ref6.commit;
+
+            commit('cancel', index);
         }
     }
 });

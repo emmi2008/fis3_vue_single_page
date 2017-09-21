@@ -2,11 +2,10 @@
     <div>
         <ul class="list clearfix">
             <li v-for="(item, index) in list">
-           
-               
-                姓名：{{item.name}}  <span class="del" @click="del_cur(index)">删除当前</span>
+                姓名：{{item.name}}  <span class="del" @click="del_cur(index)">删除当前</span> 
 
-
+                <span v-if="item.favorite"></span>
+                <span v-else><span class="del" @click="fav(index)">收藏</span></span>
             </li>
         </ul>   
     </div>
@@ -34,7 +33,7 @@
         data()
         {
             return {
-
+                show : true
             }
         },
         components:
@@ -44,7 +43,8 @@
         computed:
         {
             list() {
-              return this.$store.state.list
+
+                return this.$store.state.list
             },
         },
         methods :
@@ -52,7 +52,13 @@
             del_cur(index)
             {
                 this.$store.dispatch('del_cur',index)
-            }
+            },
+
+            fav(index)
+            {
+                var self = this;
+                this.$store.dispatch('fav',index)
+            },
         }
     }
 </script>

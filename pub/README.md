@@ -3,7 +3,7 @@
 
 
 
-## 单页主页切换
+## 单页切换
 ```bash
 vue，director.js作为Router
 ```
