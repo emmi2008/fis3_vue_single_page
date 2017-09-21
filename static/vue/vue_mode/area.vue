@@ -1,6 +1,6 @@
 <template>
     <div class='test'>
-        <span class='s'>123</span>
+        <span class='s'></span>
     </div>
 </template>
 

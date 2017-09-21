@@ -47,7 +47,7 @@ if(exports && exports.__esModule && exports.default){
   __vue__options__ = module.exports;
 }
 __vue__options__.render =function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-__vue__options__.staticRenderFns =[function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"test"},[_c('span',{staticClass:"s"},[_vm._v("123")])])}]
+__vue__options__.staticRenderFns =[function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"test"},[_c('span',{staticClass:"s"})])}]
 
 
 });

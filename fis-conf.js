@@ -5,6 +5,16 @@ fis.hook('module', {
     }*/
 });
 
+// 排除不发布文件
+fis.set('project.ignore', [
+  '监听.cmd',
+  'README.md',
+  'help.txt',
+  '.gitignore',
+  'fis-conf.js',
+  'pub/**'
+]);
+
 
 
 fis.match('*.less', {
