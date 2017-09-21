@@ -104,8 +104,10 @@ fis.match('*.{png,jpg,gif}', {
 // });
 
 
+
+
 // vue组件本身配置
-fis.match('static/vue/vue_mode/**.vue', {
+fis.match('static/vue/**/**.vue', {
   isMod: true,
   rExt: 'js',
   release:  '$&',
@@ -133,7 +135,7 @@ fis.match('static/vue/vue_mode/**.vue', {
 });
 
 // vue组件中的sass片段处理
-fis.match('static/vue/vue_mode/**.vue:less', {
+fis.match('static/vue/**/**.vue:less', {
   rExt: 'css',
   parser: fis.plugin('less'),
   useMap:false
@@ -141,7 +143,7 @@ fis.match('static/vue/vue_mode/**.vue:less', {
 
 
 // vue组件中js片段处理。
-fis.match('static/vue/vue_mode/**.vue:js', {
+fis.match('static/vue/**/**.vue:js', {
   isMod: true,
     rExt: 'js',
     useSameNameRequire: true,
@@ -151,6 +153,8 @@ fis.match('static/vue/vue_mode/**.vue:js', {
     })
   ]
 })
+
+
 
 
 // fis.match('static/lib/**.js', {
