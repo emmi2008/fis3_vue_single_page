@@ -16,7 +16,9 @@
 
     <!-- 基础库 -->
 
+
     <div id="app">
+
         <div class="content">
             <router-link to="/goods/1">商品</router-link>
             <router-link to="/ratings">评论</router-link>
@@ -34,7 +36,18 @@
 
         <br />
 
-        <div @click="go_to()">打印参数</div>
+        <button @click="go_to()">打印参数</button>（打开控制台查看）
+
+        <br />
+        <br />
+
+        <button @click="forword">前进</button>
+        <button @click="returns">返回</button>
+        <button @click="gohome">返回主页</button>
+
+        <br />
+
+
 
     </div>
 
@@ -98,6 +111,9 @@
         }
         .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
             opacity: 0
+        }
+        .router-link-active{
+            color: #000
         }
     </style>
     <script type="text/javascript" src="./static/lib/mod.js"></script>
@@ -1722,7 +1738,6 @@
 
         { path: '/goods/:id', component: goods ,name: '商品列表'},
 
-
         { path: '/ratings', component: ratings ,name: '评论列表'},
         { path: '/ratings/:id', component: detail ,name: '评论详情'},
 
@@ -1757,11 +1772,23 @@
 
         },
         methods: {
-            go_to()
-            {
+            go_to(){
                 console.log(this.$route.params);
                 // this.$router.push('/goods/3')
-            }
+            },
+            forword()
+            {
+                this.$router.go(1);
+            },
+            returns()
+            {
+                this.$router.go(-1);
+            },
+            gohome()
+            {
+                this.$router.push('/');
+            },
+
         },
         components : 
         {
