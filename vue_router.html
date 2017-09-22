@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" type="text/css" href="./static/css/common.css">
 
+    <link rel="stylesheet" type="text/css" href="./static/css/animate.css">
+
     <link rel="stylesheet" type="text/css" href="./static/css/index.css"></head>
 
 <body>
@@ -27,33 +29,82 @@
     <script type="text/javascript" src="/static/lib/vue-router.js"></script>
 
 
-
     <div id="app">
         <div class="content">
-            <router-link to="/goods">商品</router-link>
+            <router-link to="/goods/1">商品</router-link>
             <router-link to="/ratings">评论</router-link>
             <router-link to="/seller">商家</router-link>
-
         </div>
+
         <br />
         <!-- <router-view></router-view> -->
 
-        <transition>
-          <keep-alive>
-            <router-view></router-view>
-          </keep-alive>
+        <transition name="fade" >
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
         </transition>
 
+        <br />
+
+        <div @click="go_to()">打印参数</div>
 
     </div>
 
 
+    <!-- 评论列表 二级导航 -->
+    <script type="text/x-template" id="ratings">
+        <div>
+            <h2>评论列表</h2>
+            <ul>
+                <li>
+                    <router-link to="/ratings/001">评论001</router-link>
+                </li>
+                <li>
+                    <router-link to="/ratings/002">评论002</router-link>
+                </li>
+            </ul>           
+        </div>
+    </script>
+
+
+
+    <!-- 商家 二级导航 -->
+    <script type="text/x-template" id="seller">
+        <div>
+            <h2>评论列表</h2>
+            <ul>
+                <li>
+                    <router-link to="/seller/001">商家001</router-link>
+                </li>
+                <li>
+                    <router-link to="/seller/002">商家002</router-link>
+                </li>
+                <li>
+                    <router-link to="/seller/003">商家003</router-link>
+                </li>
+            </ul>           
+        </div>
+    </script>
+
+
+    <template id="detail">
+        <div>
+            详细页面:
+            <span>{{$route.params.id}}</span>
+        </div>
+    </template>
 
 
 </body>
 
     <style>
-
+        .fade-enter-active, .fade-leave-active {
+            ransition: opacity .5s
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0
+        }
     </style>
 
 
@@ -67,12 +118,18 @@
     <script type="text/javascript">
 
 
-
     // 首先定义或者引入路由的组件
     // 方法一：直接定义路由组件
-    const goods = { template: '<p>goods</p>' };
-    const ratings = { template: '<p>ratings</p>' };
-    const seller = { template: '<p>seller</p>' };
+    const goods = { template: '<p>goods  参数：{{ $route.params.id }}</p>' };
+
+    // const ratings = { template: '<p>ratings</p>' };
+    const ratings = { template: '#ratings' };
+
+    // const seller = { template: '<p>seller</p>' };
+    const seller = { template: '#seller' };
+
+
+    const detail = { template: '#detail' };
 
     // 方法二：import引入路由组件
     // import goods from 'components/goods/goods';
@@ -83,12 +140,21 @@
     // 然后定义路由(routes)，components还可以是Vue.extend()创建的
     const routes = 
     [
-        { path: '/goods', component: goods ,name: 'goods'},
-        { path: '/ratings', component: ratings ,name: 'ratings'},
-        { path: '/seller', component: seller ,name: 'seller'},
+        // 默认打开商品页
+        { path: '/', redirect: '/goods'},
+
+        { path: '/goods/:id', component: goods ,name: '商品列表'},
+
+
+        { path: '/ratings', component: ratings ,name: '评论列表'},
+        { path: '/ratings/:id', component: detail ,name: '评论详情'},
+
+
+        { path: '/seller', component: seller ,name: '商家列表'},
+        { path: '/seller/:id', component: detail ,name: '商家详情'},
 
         // 刚进入应用都是进入到“/”这个路由的，如果想直接进入到“/goods”怎么办，这里提供两种方法。一种是利用重定向，另一种是利用vue-router的导航式编程。
-        { path: '/', redirect: '/goods'},
+        
     ];
 
 
@@ -104,8 +170,6 @@
     })
 
 
-
-
     new Vue({
         el: '#app',
         router,
@@ -116,7 +180,11 @@
 
         },
         methods: {
-
+            go_to()
+            {
+                console.log(this.$route.params);
+                // this.$router.push('/goods/3')
+            }
         },
         components : 
         {
