@@ -5,7 +5,7 @@
         <br/>
 
         <div class='mod' @click="add">增加</div>
-        <div class='mod' @click="del">删除</div>
+        <!-- <div class='mod' @click="del">删除</div> -->
     </div>
 </template>
 

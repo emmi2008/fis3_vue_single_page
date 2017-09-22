@@ -2,7 +2,7 @@
     <div>
         <ul class="list clearfix">
             <li v-for="(item, index) in list">
-                姓名：{{item.name}}  <span class="del" @click="del_cur(index)">删除当前</span> 
+                姓名：{{item.name}}  <span class="del" @click="del_cur(index)">删除</span> 
 
                 <span v-if="item.favorite"></span>
                 <span v-else><span class="del" @click="fav(index)">收藏</span></span>
