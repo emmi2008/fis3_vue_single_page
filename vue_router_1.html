@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+    <title>FIS3 demo</title>
+    <meta charset="utf-8">
+
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no">
+
+    <!-- 测试less编译 -->
+    <link rel="stylesheet" type="text/css" href="./static/css/test.less">
+
+    <link rel="stylesheet" type="text/css" href="./static/css/common.css">
+
+    <link rel="stylesheet" type="text/css" href="./static/css/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"></head>
+
+<body>
+
+    <!-- 基础库 -->
+    <script type="text/javascript" src="/static/lib/mod.js"></script>
+    <script type="text/javascript" src="/static/lib/vue.js"></script>
+
+
+    <script type="text/javascript" src="/static/lib/vue-router.js"></script>
+
+
+    <div id="app">
+        <router-view></router-view>
+    </div>
+
+
+</body>
+
+    <style>
+        html, body {
+            padding: 0;
+        }
+
+        #app {
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50;
+        }
+        .header {
+            width:100%;
+            height:44px;
+            background:#0058f1;
+            color:#fff;
+            line-height:44px;
+            text-align: center;
+            margin-bottom:10px;
+        }
+        .header .left {
+            position: absolute;
+            font-size: 20x;
+            font-weight: bold;
+            padding: 0px 20px;
+
+            
+        }
+
+
+    </style>
+
+
+    <!-- 把css，js插到对应指定位置 fis -->
+    <!--STYLE_PLACEHOLDER-->
+    <!--SCRIPT_PLACEHOLDER-->
+
+    <!-- fis生成资源路径 -->
+    <script type="text/javascript">var _map = __RESOURCE_MAP__;</script>
+
+    <script type="text/javascript">
+
+
+    // 引入组件
+    const PageTransition = require('vue/vue_router/PageTransition_config.js');
+    const Index = require('vue/vue_router/Index_config.js');
+    const PageA = require('vue/vue_router/pageA_config.js');
+    const PageB = require('vue/vue_router/pageB_config.js');
+
+
+    // 定义路由
+    const routes = 
+    [
+        {
+            path: '/',
+            name: 'PageTransition',
+            component: PageTransition,
+            children: [
+            {
+                path: '',
+                component: Index
+            },
+            {
+                path: '/pageA',
+                component: PageA
+            },
+            {
+                path: '/pageB',
+                component: PageB
+            }]
+        }
+    ]
+
+
+    // 接着创建路由实例
+    const router = new VueRouter({
+        // ES6缩写语法，相当于routes:routes
+        routes  
+    });
+
+
+    // import Router from 'vue-router';
+
+    
+
+    router.goBack = function()
+    {
+        this.isBack = true
+        this.go(-1)
+    }
+
+
+
+
+    new Vue({
+        el: '#app',
+        router,
+        computed: {
+        },
+        methods: {
+
+        },
+        components : 
+        {
+
+        },
+    })
+
+
+</script>
+
+</html>
