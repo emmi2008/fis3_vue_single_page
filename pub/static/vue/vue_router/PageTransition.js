@@ -19,24 +19,21 @@ exports['default'] = {
         return {
             transitionName: 'slide-left'
         };
-    }
+    },
 
+    beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
+        var isBack = this.$router.isBack;
+        console.log(isBack);
+        if (isBack) {
+            this.transitionName = 'slide-right';
+        } else {
+            this.transitionName = 'slide-left';
+        }
+        this.$router.isBack = false;
+        next();
+    }
 };
 module.exports = exports['default'];
-// beforeRouteUpdate (to, from, next){
-//     let isBack = this.$router.isBack
-//     console.log(isBack);
-//     if (isBack)
-//     {
-//         this.transitionName = 'slide-right'
-//     }
-//     else
-//     {
-//         this.transitionName = 'slide-left'
-//     }
-//     this.$router.isBack = false;
-//     next()
-// }
 var __vue__options__;
 if(exports && exports.__esModule && exports.default){
   __vue__options__ = exports.default;
