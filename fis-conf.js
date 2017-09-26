@@ -12,6 +12,7 @@ fis.set('project.ignore', [
   'help.txt',
   '.gitignore',
   'fis-conf.js',
+  'node_modules/**',
   'pub/**'
 ]);
 
