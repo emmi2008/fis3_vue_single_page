@@ -1,0 +1,19 @@
+/**
+  整个项目的颜色配置
+ */
+//背景颜色
+$color_background:#fff;
+
+//字体颜色
+$color_font:#111;
+$color_default:#444;
+
+
+//网站主色调
+$color_main:#46d233;
+
+//链接颜色
+$color_link:$color_main;
+$color_link_hover:lighten($color_link,10%);
+$color_link_active:#3fbd2e;
+

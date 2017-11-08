@@ -1,0 +1,39 @@
+@import "./function.mixin.scss";
+
+
+//less 编译测试
+.a1 {
+    //background: url(./images/1.jpg?__sprite);
+    width: 50px;
+    height: 50px;
+}
+
+.a2 {
+    //background: url(./images/2.jpg?__sprite);
+    width: 100px;
+    height: 100px;
+}
+
+
+
+.a3 {
+    //background: url(./images/2.jpg?__sprite);
+    width: 200px;
+    height: 200px;
+}
+
+
+
+.recommened-nav a{
+    font-size: 18px;
+}
+
+.index-cur{
+    margin-top: 20px;
+    @include css3(transition-duration,.3s); 
+    a{
+        font-size: 20px;
+        @include css3(transition-duration,.3s); 
+    }
+
+}

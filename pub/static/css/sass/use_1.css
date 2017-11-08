@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/**
+  整个项目的颜色配置
+ */
+/** global color */
+/** global font size */
+/** button color */
+/** global size setting */
+.a1 {
+  width: 50px;
+  height: 50px;
+}
+
+.a2 {
+  width: 100px;
+  height: 100px;
+}
+
+.a3 {
+  width: 200px;
+  height: 200px;
+}
+
+.recommened-nav a {
+  font-size: 18px;
+}
+
+.index-cur {
+  margin-top: 20px;
+  -webkit-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.index-cur a {
+  font-size: 20px;
+  -webkit-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}

@@ -1,0 +1,166 @@
+@import "color.mixin.scss";
+@import "setting.mixin.scss";
+@import "variables.scss";
+
+$percent: 750/750;
+$font-size: 12px;
+$line-hegiht: 1.5;
+$font-family: "Microsoft YaHei";
+
+@function resize($px) {
+  $ret : floor($percent * $px);
+  @if($ret <1 and $ret >0 ){
+    $ret : 1px;
+  }
+  @return $ret ;
+}
+
+@mixin css3($name : box-sizing,$value : "",$important:false) {
+  @if ($important) {
+    $important: !important;
+  } @else {
+    $important: "";
+  }
+  -webkit-#{$name}: $value#{$important};
+  -ms-#{$name}: $value#{$important};
+  -moz-#{$name}: $value#{$important};
+  #{$name}: $value#{$important};
+}
+
+@mixin flex {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin flex_child($num:1) {
+  -webkit-box-flex: $num; /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $num; /* OLD - Firefox 19- */
+  -webkit-flex: $num; /* Chrome */
+  -ms-flex: $num; /* IE 10 */
+  flex: $num; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin inline-block($vertical-align:top) {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: $vertical-align;
+}
+
+@mixin opacity($opacity:0.5) {
+  opacity: $opacity;
+  filter: alpha(opacity=$opacity*100);
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin border_1px($direct:"top",$color:#ddd) {
+
+  &:before {
+    @if ($direct == "top") {
+      width: 200%;
+      height: 1px;
+      left: 0;
+      top: 0;
+    }
+    @if ($direct == "bottom") {
+      width: 200%;
+      height: 1px;
+      left: 0;
+      bottom: 0;
+    }
+    position: absolute;
+    z-index: 9;
+    background: $color;
+    content: ' ';
+    @include css3(transform, scale(0.5));
+    @include css3(transform-origin, 0px 0px);
+  }
+}
+
+@mixin clearfix($bool:false) {
+
+  @if ($bool) {
+    overflow: hidden;
+  }
+  &:after {
+    display: block;
+    content: " ";
+    clear: both;
+  }
+}
+
+@mixin arrow($background:$color_a,$direct:'left',$height:10px,$width:5px) {
+  $border-left:'';
+  $border-right:'';
+  $border-bottom:'';
+  $border-top:'';
+  @if ($direct == 'left') {
+    $border-left:$width  solid transparent;
+    $border-right:$width solid $background;
+    $border-bottom:$height / 2 solid transparent;
+    $border-top:$height / 2 solid transparent;
+  }
+  @if ($direct == 'bottom') {
+    $border-left:$width /2 solid transparent;
+    $border-right:$width /2 solid transparent;
+    $border-bottom:$height solid $background;
+    $border-top:none;
+  }
+  @if ($direct == 'left') {
+    $border-left:$width  solid transparent;
+    $border-right:$width solid $background;
+    $border-bottom:$height / 2 solid transparent;
+    $border-top:$height / 2 solid transparent;
+  }
+  display: block;
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left:$border-left;
+  border-right:$border-right;
+  border-bottom:$border-bottom;
+  border-top:$border-top;
+}
+
+@mixin text_overflow(){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin border-box(){
+  @include css3(box-sizing,border-box);
+}
+
+@mixin placeholder($color){
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color:$color;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:$color;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:$color;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:$color;
+  }
+}
