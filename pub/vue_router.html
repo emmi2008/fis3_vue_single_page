@@ -102,7 +102,7 @@
     
 
     <!-- 把css，js插到对应指定位置 fis -->
-        <link rel="stylesheet" type="text/css" href="./static/css/test.css" />
+        <link rel="stylesheet" type="text/css" href="./static/css/test.less" />
     <link rel="stylesheet" type="text/css" href="./static/css/common.css" />
     <link rel="stylesheet" type="text/css" href="./static/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="./static/css/index.css" />
@@ -157,8 +157,24 @@
             "uri": "./static/css/index.css",
             "type": "css"
         },
-        "css/test.less": {
-            "uri": "./static/css/test.css",
+        "css/sass/color.mixin.scss": {
+            "uri": "./static/css/sass/color.mixin.css",
+            "type": "css"
+        },
+        "css/sass/function.mixin.scss": {
+            "uri": "./static/css/sass/function.mixin.css",
+            "type": "css"
+        },
+        "css/sass/setting.mixin.scss": {
+            "uri": "./static/css/sass/setting.mixin.css",
+            "type": "css"
+        },
+        "css/sass/use_1.scss": {
+            "uri": "./static/css/sass/use_1.css",
+            "type": "css"
+        },
+        "css/sass/variables.scss": {
+            "uri": "./static/css/sass/variables.css",
             "type": "css"
         },
         "lib/mod.js": {
@@ -347,6 +363,20 @@
             "uri": "./static/vue/vue_router/Index.js",
             "type": "js"
         },
+        "vue/vue_router/nofound_config.js": {
+            "uri": "./static/vue/vue_router/nofound_config.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "vue/vue_router/nofound_config"
+            },
+            "deps": [
+                "vue/vue_router/nofound.vue"
+            ]
+        },
+        "vue/vue_router/nofound.vue": {
+            "uri": "./static/vue/vue_router/nofound.js",
+            "type": "js"
+        },
         "vue/vue_router/pageA_config.js": {
             "uri": "./static/vue/vue_router/pageA_config.js",
             "type": "js",
@@ -388,10 +418,6 @@
         "vue/vue_router/PageTransition.vue": {
             "uri": "./static/vue/vue_router/PageTransition.js",
             "type": "js"
-        },
-        "vue/vue_router/PageTransition.css": {
-            "uri": "./static/vue/vue_router/PageTransition.css",
-            "type": "css"
         },
         "vue/vue_x2/c_list_fav_config.js": {
             "uri": "./static/vue/vue_x2/c_list_fav_config.js",
@@ -463,19 +489,9 @@
                 "moduleId": "vue/vue_x2/store"
             }
         },
-        "vue/vue_router/nofound.vue": {
-            "uri": "./static/vue/vue_router/nofound.js",
+        "lib/jquery3.1.js": {
+            "uri": "./static/lib/jquery3.1.js",
             "type": "js"
-        },
-        "vue/vue_router/nofound_config.js": {
-            "uri": "./static/vue/vue_router/nofound_config.js",
-            "type": "js",
-            "extras": {
-                "moduleId": "vue/vue_router/nofound_config"
-            },
-            "deps": [
-                "vue/vue_router/nofound.vue"
-            ]
         }
     },
     "pkg": {}

@@ -18,12 +18,26 @@ fis.set('project.ignore', [
 
 
 
-fis.match('*.less', {
-    // fis-parser-less 插件进行解析
-    parser: fis.plugin('less'),
-    // .less 文件后缀构建后被改成 .css 文件
-    rExt: '.css'
+// fis.match('*.less', {
+//     // fis-parser-less 插件进行解析
+//     parser: fis.plugin('less'),
+//     // .less 文件后缀构建后被改成 .css 文件
+//     rExt: '.css'
+// })
+
+
+
+fis.match('*.scss', {
+
+    parser: fis.plugin('node-sass', {
+    // options...
+    }),
+    rExt: '.css',
+
+    url : "." + '$&'
 })
+
+
 
 fis.match('*', {
     useHash: false

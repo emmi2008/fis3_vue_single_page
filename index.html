@@ -9,8 +9,11 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="wap-font-scale" content="no">
 
-    <!-- 测试less编译 -->
-    <link rel="stylesheet" type="text/css" href="./static/css/test.less">
+
+    <!-- 测试sass编译 -->
+    <!-- <link rel="stylesheet" type="text/css" href="./static/css/sass/function.mixin.scss"> -->
+
+    <link rel="stylesheet" type="text/css" href="./static/css/sass/use_1.scss">
 
     <link rel="stylesheet" type="text/css" href="./static/css/common.css">
 
@@ -23,6 +26,8 @@
     <!-- 基础库 -->
     <script type="text/javascript" src="/static/lib/mod.js"></script>
     <script type="text/javascript" src="/static/lib/vue.js"></script>
+
+    <script type="text/javascript" src="/static/lib/jquery3.1.js"></script>
     
 
     <!-- 测试es6 编译 -->
@@ -63,6 +68,9 @@
     // console.log(test.run(6));
     // require.preload('hello.js');
     
+    setTimeout(function(){
+        $('.recommened-nav').addClass('index-cur')
+    }, 1000)
 </script>
 
 
