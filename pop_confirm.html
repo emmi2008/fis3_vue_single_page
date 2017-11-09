@@ -23,8 +23,16 @@
     <script type="text/javascript" src="/static/lib/vue.js"></script>
 
     <div id="app" v-cloak>
-        <pop_confirm_component> </pop_confirm_component>
+
+        <div @click="show()">
+            点击演示
+        </div>
+        <template v-if="pop_show">
+            <pop_confirm_component @cancel="cancel()" @confirm="confirm()"> </pop_confirm_component>
+        </template>
+
     </div>
+
 
 </body>
 
@@ -43,13 +51,28 @@
 
     new Vue({
         el: '#app',
-        data: 
-        {
-
+        data: function () {
+            return {
+                pop_show : false 
+            }
         },
         methods :
         {
+            show : function () {
+                var self = this;
+                self.pop_show = true;
+            },
 
+            cancel : function () {
+                alert('触发了关闭');
+                var self = this;
+                self.pop_show = false;
+            },
+            confirm : function () {
+                var self = this;
+                alert('触发了确定');
+                self.pop_show = false;
+            },
         },
         components: {
 

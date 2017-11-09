@@ -3,13 +3,13 @@
 
         <div class="w_pui_dialog cc_topic_default" style="z-index: 100000; margin-top: -100px; margin-left: -280px;" >
             <div class="cc_main">
-                <div class="cc_close"> <i class="iconfont icon-close"></i>
+                <div class="cc_close"  @click="cancel()"> <i class="iconfont icon-close"><img src="../../images/close.jpg" /></i>
                 </div>
                 <div class="cc_confirm">
                     <div class="cc_content">是否删除评论？</div>
                     <div class="cc_tools">
-                        <a href="javascript:void(0)" class="gp_button gp_button_h40 gp_button_white">取消</a>
-                        <a href="javascript:void(0)" class="gp_button gp_button_h40 gp_button_topic_main">确定</a>
+                        <a href="javascript:void(0)" @click="cancel()" class="gp_button gp_button_h40 gp_button_white">取消</a>
+                        <a href="javascript:void(0)" @click="confirm()" class="gp_button gp_button_h40 gp_button_topic_main">确定</a>
                     </div>
                 </div>
             </div>
@@ -60,11 +60,21 @@
 
         methods :
         {
-            click()
+            cancel()
             {
                 var self = this;
-                console.log('点击');
+                this.$emit("cancel");
+            },
+
+            confirm()
+            {
+                var self = this;
+                this.$emit("confirm");
             }
+
+            
+
+
         }
     }
 </script>
