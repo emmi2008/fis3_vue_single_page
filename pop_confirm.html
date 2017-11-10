@@ -29,11 +29,14 @@
         </div>
 
 
-
+        <!-- 组件 -->
         <pop_confirm_component 
             @cancel="cancel()" 
             @confirm="confirm()" 
-            :pop_confirm_is_show = "pop_confirm_is_show"
+            @emit_show="emit_show()" 
+            @emit_hide="emit_hide()" 
+            :pop_is_show = "pop_is_show"
+            :pop_is_show_mask = "pop_is_show_mask"
         > 
         </pop_confirm_component>
 
@@ -56,29 +59,42 @@
     // 直接注册使用 或者如下 子组件引入
     Vue.component(pop_confirm_component.name, pop_confirm_component);
 
+
     new Vue({
         el: '#app',
         data: function () {
             return {
-                pop_confirm_is_show : ""
+                pop_is_show : false,
+                pop_is_show_mask : false
             }
         },
         methods :
         {
             show : function () {
                 var self = this;
-                self.pop_confirm_is_show = "pop_confirm_is_show";
+                self.pop_is_show_mask = true;
+            },
+
+            emit_show : function () {
+                var self = this;
+                self.pop_is_show = true;
+            },
+
+            emit_hide : function () {
+                var self = this;
+                self.pop_is_show_mask = false;
             },
 
             cancel : function () {
-                alert('触发了关闭');
+                // alert('触发了关闭');
                 var self = this;
-                self.pop_confirm_is_show = "";
+                self.pop_is_show = false;
             },
             confirm : function () {
                 var self = this;
-                alert('触发了确定');
-                self.pop_confirm_is_show = "";
+                // alert('触发了确定');
+                self.pop_is_show = false;
+
             },
         },
         components: {

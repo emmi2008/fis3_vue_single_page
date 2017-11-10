@@ -1,5 +1,8 @@
 @import "./function.mixin.scss";
 @import "../../css/sass/function.mixin.scss";
+a {
+    text-decoration: none !important;
+}
 
 
 .gp_button_white {
@@ -7,19 +10,20 @@
     color: #46d233;
     border: 1px solid #46d233;
 }
-
 .gp_button_h40 {
     height: 40px;
-    line-height: 40px!important;
+    line-height: 40px !important;
     font-size: 16px;
 }
-
 .gp_button_topic_main {
     background: #46d233;
     color: #fff;
     border: 0;
+    @include css3(transition-duration, 0.2s);
+    &:hover {
+        background: #30c31c;
+    }
 }
-
 .gp_button {
     display: inline-block;
     vertical-align: top;
@@ -39,108 +43,92 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     height: 40px;
-    line-height: 40px!important;
+    line-height: 40px !important;
     font-size: 16px;
 }
 
 
-.pop_confirm{
-
-    display: none;
-
-    .w_pui_dialog {
-        
- 
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        z-index: 2;
-        //遮罩层动画
-        .fade-enter-active {
-            transition: opacity .3s
-        }
-        .fade-enter, .fade-leave-to {
-            opacity: 0
-        }
-        .fade-leave-active {
-            transition: opacity .3s ease-in-out .4s;
-        }
-        //弹窗动画
-        .slide_down-enter-active {
-            transition: all .5s ease-in-out .2s;
-        }
-        .slide_down-enter, .slide_down-leave-to {
-            @include css3(transform, translate(0px, -50px));
-            opacity: 0;
-        }
-        .slide_down-leave-active {
-            transition: all .5s;
-        }
-        .cc_close {
-            width: 12px;
-            height: 12px;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            cursor: pointer;
-            .iconfont {
-                color: #999;
-            }
-        }
-        &>.cc_main {
-            position: relative;
-            padding: 40px 60px;
-            z-index: 100000;
-        }
-        &.cc_topic_default {
-            .cc_main {
-                background: #fff;
-            }
-        }
-        .cc_confirm {
-            &>.cc_content {
-                min-height: 30px;
-                padding: 10px 20px 40px 20px;
-                overflow: hidden;
-                font-size: 20px;
-                min-width: 400px;
-                text-align: center;
-            }
-            &>.cc_tools {
-                text-align: right;
-                &>a {
-                    @include inline-block();
-                    margin-left: 15px;
-                }
-            }
-        }
+.w_pui_dialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    //遮罩层动画
+    .fade-enter-active {
+        transition: opacity .3s
     }
-
-
-    .cc_in{
-        width: 100%;
-        height:100%;
-        left:0;
-        top:0;
-        position: fixed;
-        background: rgb(0, 0, 0);
+    .fade-enter, .fade-leave-to {
+        opacity: 0
+    }
+    .fade-leave-active {
         transition: opacity .3s ease-in-out .4s;
+    }
+    //弹窗动画
+    .slide_down-enter-active {
+        transition: all .5s ease-in-out .2s;
+    }
+    .slide_down-enter, .slide_down-leave-to {
+        @include css3(transform, translate(0px, -50px));
         opacity: 0;
     }
-
-}
-
-
-
-
-
-.pop_confirm_is_show{
-    display: block;
-    .cc_in{
-        transition: opacity .3s ease-in-out .4s;
-        opacity: 0.5;
+    .slide_down-leave-active {
+        transition: all .5s;
+    }
+    .cc_close {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+        .iconfont {
+            color: #999;
+        }
+    }
+    &>.cc_main {
+        position: relative;
+        padding: 40px 60px;
+        z-index: 100000;
+    }
+    &.cc_topic_default {
+        .cc_main {
+            background: #fff;
+        }
+    }
+    .cc_confirm {
+        &>.cc_content {
+            min-height: 30px;
+            padding: 10px 20px 40px 20px;
+            overflow: hidden;
+            font-size: 20px;
+            min-width: 400px;
+            text-align: center;
+        }
+        &>.cc_tools {
+            text-align: right;
+            &>a {
+                @include inline-block();
+                margin-left: 15px;
+            }
+        }
     }
 }
 
 
-
+.w_pui_dialog_mask {
+    .cc_in {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        opacity: 0.5;
+    }
+    //遮罩层动画
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .3s
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0
+    }
+}
