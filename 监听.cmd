@@ -1,5 +1,5 @@
 @echo off
 
-fis3 release -wL
+fis3 release -cwL
 
 :end
