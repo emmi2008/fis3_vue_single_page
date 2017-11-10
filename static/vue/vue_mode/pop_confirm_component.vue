@@ -7,7 +7,7 @@
                         <div class="cc_close"  @click="cancel()"> <i class="iconfont icon-close"><img src="../../images/close.jpg" /></i>
                         </div>
                         <div class="cc_confirm">
-                            <div class="cc_content">这里是提示文案</div>
+                            <div class="cc_content"><slot name='txt'></slot></div>
                             <div class="cc_tools">
                                 <a href="javascript:void(0)" @click="cancel()" class="gp_button gp_button_h40 gp_button_white">取消</a>
                                 <a href="javascript:void(0)" @click="confirm()" class="gp_button gp_button_h40 gp_button_topic_main">确定</a>
@@ -16,8 +16,7 @@
                     </div>
             </div>
         </transition>
-
-
+    
 
         <div class="w_pui_dialog_mask" >
             <transition name="fade"    @after-enter = "fn_after_show">
@@ -35,13 +34,16 @@
     export default
     {
         name : 'pop_confirm_component',
-        props : {
+        props : 
+        {
             //默认写法
-            "pop_is_show" : {
+            "pop_is_show" :
+            {
                 "type" : [String,Boolean],
                 "default" : ''
             },
-            "pop_is_show_mask" : {
+            "pop_is_show_mask" : 
+            {
                 "type" : [String,Boolean],
                 "default" : ''
             },
@@ -78,28 +80,19 @@
                 var self = this;
                 this.$emit("cancel");
             },
-
             confirm()
             {
                 var self = this;
                 this.$emit("confirm");
-
             },
-
-
-            fn_after_hide:function(){
-                console.log(11);
+            fn_after_hide()
+            {
                 this.$emit("emit_hide");
             },
-
-
-            fn_after_show:function(){
-                console.log(22);
+            fn_after_show()
+            {
                 this.$emit("emit_show");
             },
-
-        
-
         }
     }
 </script>

@@ -10,39 +10,36 @@
     <meta name="wap-font-scale" content="no">
     <!-- 测试less编译 -->
     <!-- <link rel="stylesheet" type="text/css" href="./static/css/test.less"> -->
-
     <link rel="stylesheet" type="text/css" href="./static/css/common.css">
     <link rel="stylesheet" type="text/css" href="./static/css/index.css">
     <link rel="stylesheet" type="text/css" href="./static/css/sass/pop_confirm_component.scss">
 </head>
-
 <body>
 
     <!-- 基础库 -->
     <script type="text/javascript" src="/static/lib/mod.js"></script>
     <script type="text/javascript" src="/static/lib/vue.js"></script>
 
-    <div id="app" v-cloak>
+    <div id="app" v-cloak >
 
-        <div @click="show()">
+        <div @click="show()" style="font-size:30px">
             点击演示
         </div>
 
-
-        <!-- 组件 -->
+        <!-- 弹出组件 -->
         <pop_confirm_component 
             @cancel="cancel()" 
             @confirm="confirm()" 
             @emit_show="emit_show()" 
             @emit_hide="emit_hide()" 
             :pop_is_show = "pop_is_show"
-            :pop_is_show_mask = "pop_is_show_mask"
+            :pop_is_show_mask = "pop_is_show_mask" 
         > 
+            <span slot="txt">这里是提示文案</span>  
         </pop_confirm_component>
-
+        <!-- 弹出组件 end -->
 
     </div>
-
 
 </body>
 
@@ -59,45 +56,48 @@
     // 直接注册使用 或者如下 子组件引入
     Vue.component(pop_confirm_component.name, pop_confirm_component);
 
-
     new Vue({
         el: '#app',
-        data: function () {
-            return {
+        data: function () 
+        {
+            return{
                 pop_is_show : false,
                 pop_is_show_mask : false
             }
         },
         methods :
         {
-            show : function () {
+            show : function () 
+            {
                 var self = this;
                 self.pop_is_show_mask = true;
             },
-
-            emit_show : function () {
+            emit_show : function () 
+            {
                 var self = this;
                 self.pop_is_show = true;
             },
-
-            emit_hide : function () {
+            emit_hide : function () 
+            {
                 var self = this;
                 self.pop_is_show_mask = false;
             },
-
-            cancel : function () {
-                // alert('触发了关闭');
+            cancel : function () 
+            {
+                alert('触发了关闭');
                 var self = this;
                 self.pop_is_show = false;
             },
-            confirm : function () {
+            confirm : function () 
+            {
                 var self = this;
-                // alert('触发了确定');
+                alert('触发了确定');
                 self.pop_is_show = false;
 
             },
         },
-        components: {
+        components: 
+        {
 
         }
         
