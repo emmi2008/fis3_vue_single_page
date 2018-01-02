@@ -27,9 +27,7 @@
         </div>
 
         <!-- 弹出组件 -->
-        <play_pic> 
-
-        </play_pic>
+        <play_pic :image_list = pic_list ></play_pic>
         <!-- 弹出组件 end -->
 
     </div>
@@ -49,12 +47,24 @@
     // 直接注册使用 或者如下 子组件引入
     Vue.component(play_pic.name, play_pic);
 
+
     new Vue({
         el: '#app',
         data: function () 
         {
             return{
-   
+                pic_list : [
+                    {
+                        "image" :"http://image17-c.poco.cn/mypoco/myphoto/20170919/17/17853658720170919171044019.jpg?800x1200_120"
+                    },
+                    {
+                        "image" :"http://image17-c.poco.cn/mypoco/myphoto/20170919/17/17853658720170919171155085.jpg?800x530_120"
+                    },
+                    {
+                        "image" :"http://image17-c.poco.cn/mypoco/myphoto/20170919/17/17853658720170919171233063.jpg?800x1200_120"
+                    },
+
+                ]
             }
         },
         methods :
