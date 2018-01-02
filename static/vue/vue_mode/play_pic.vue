@@ -1,5 +1,10 @@
 <template>
-    <div class='play_pic'>
+    <div class='play_pic'  v-if="is_show"  @mousewheel.prevent="fn_mousewheel"  @DOMMouseScroll.prevent="fn_mousewheel" >
+
+        <a  href="javascript:void(0);" class="close" @click="fn_close()">
+            <img src="../../images/close.jpg" />
+        </a>
+
         <div class="lbox" v-if="current_pos > 0" @click="current_pos--">
             <img src="../../images/l.jpg" />
         </div>
@@ -100,6 +105,17 @@
         font-size: 18px;
         z-index: 3;
     }
+    .close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        z-index: 11;
+        cursor: pointer;
+    }
 </style>
 
 <script type='text/babel'>
@@ -122,16 +138,34 @@
         props : 
         {
             "select" : Number,
-            "image_list" : Array
+            "image_list" : Array,
+            "is_show"  : Boolean
         },
         mounted()
         {
             var self = this;
+
+            console.log(this.select);
+
+            document.onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode==37)
+                {   
+                    // console.log("左键");
+                    //左键
+                    self.current_pos--;
+                }
+                if(e && e.keyCode==39)
+                {
+                    //右键
+                    self.current_pos++;
+                }
+            };
         },
         data()
         {
             return {
-                "current_pos":this.select || 0
+                "current_pos" : this.select || 0
             }
         },
         components:
@@ -141,14 +175,53 @@
         computed:
         {
             "count":function () {
-                console.log(1);
                 return this.image_list.length || 0;
             }
 
         },
+
+
+        watch:{
+
+            "select":function ()
+             {
+                this.current_pos = this.select || 0;
+                console.log(this.select);
+            },
+
+            "current_pos":function () 
+            {
+                var self = this;
+                if(self.current_pos < 0) 
+                    self.current_pos = 0;
+                else if(self.current_pos > self.count-1)
+                {
+                    self.current_pos = self.count-1;
+                }
+                // this.$emit("update:select",this.current_pos);
+            }
+        },
+
+
         methods :
         {
+            "fn_close":function () 
+            {
+                this.$emit("close");
+                // console.log("关闭");
+            },
 
+            "fn_mousewheel":function (e) 
+            {
+                var cc_which = e.detail ? - e.detail : e.wheelDelta;
+                if(cc_which < 0)
+                {
+                    this.current_pos++;
+                }
+                else{
+                    this.current_pos--;
+                }
+            }
         }
     }
 </script>
