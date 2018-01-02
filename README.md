@@ -39,6 +39,6 @@ vue-router
 
 ##  vue 封装弹出图片播放组件
 ```bash
-使用vue transition方法， 增加进场跟退场回调css3动画效果，弹窗口体验更好一些，slot内容分发到组件，起到props传递的作用。
+vue在数据双互绑定方面做交互实在方便
 ```
 预览地址： <a  target="_blank"  href="https://zky86.github.io/fis3_vue_single_page/pub/play_pic.html">点击预览</a>
