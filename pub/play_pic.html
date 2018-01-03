@@ -27,9 +27,8 @@
         <br /><br />
         <img src="http://image17-c.poco.cn/mypoco/myphoto/20170919/17/17853658720170919171233063.jpg?800x1200_120" data-role="img" />
 
-
         <!-- 弹出组件 -->
-        <play_pic :image_list = pic_list  :is_show=is_show  :select="image_list_index"   v-on:close="close"></play_pic>
+        <play_pic :image_list = pic_list  :is_show=is_show  :select="image_list_index" :son.sync="father"   v-on:close="close"></play_pic>
         <!-- 弹出组件 end -->
 
     </div>
@@ -467,7 +466,6 @@
     // 直接注册使用 或者如下 子组件引入
     Vue.component(play_pic.name, play_pic);
 
-
     new Vue({
         el: '#app',
         data: function () 
@@ -486,29 +484,37 @@
                 ],
                 is_show : false,
                 image_list_index : 0,
+                father : 1
             }
         },
+
+        watch:{
+            "father":function ()
+             {
+                var self = this;
+                // console.log("触发父页面");
+                // console.log(self.father);
+            },
+        },
+
         mounted()
         {
             var self = this;
             var img_arr = $('[data-role="img"]');
-
             img_arr.each(function(index, val) {
                 self.pic_list.push({
                     image : $(val).attr('src')
                 })
                 // console.log(val);
             });
-
             // console.log(self.pic_list);
-
             $('[data-role="img"]').on('click', function(event) {
                 self.image_list_index = img_arr.index($(this));
                 // console.log(self.image_list_index);
                 self.is_show = true;
-                
             });
         },
+
         methods :
         {
             show : function() 
@@ -522,6 +528,7 @@
                 var self = this;
                 self.is_show = false;
             },
+
         },
         components: 
         {

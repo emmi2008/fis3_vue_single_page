@@ -2,11 +2,15 @@
     <div class='play_pic'  v-if="is_show"  @mousewheel.prevent="fn_mousewheel"  @DOMMouseScroll.prevent="fn_mousewheel" >
 
         <a  href="javascript:void(0);" class="close" @click="fn_close()">
-            <img src="../../images/close.jpg" />
+            <img src="../../images/close.png" />
         </a>
 
         <div class="lbox" v-if="current_pos > 0" @click="current_pos--">
-            <img src="../../images/l.jpg" />
+            <img src="../../images/l.png" />
+        </div>
+
+        <div class="rbox" v-if="current_pos < count - 1" @click="current_pos++">
+            <img src="../../images/r.png" />
         </div>
 
         <div class="tips">
@@ -19,10 +23,7 @@
             </span>
         </div>
 
-        <div class="rbox" v-if="current_pos < count - 1" @click="current_pos++">
-            span
-            <img src="../../images/r.jpg" />
-        </div>
+        
     </div>
 </template>
 
@@ -54,6 +55,20 @@
         left:20px;
     }
 
+
+    .rbox{
+        display: block;
+        position: absolute;
+        top:50%;
+        height:56px;
+        width: 30px;
+        margin-top:-28px;
+        line-height: 1;
+        cursor: pointer;
+        z-index:3;
+        right:70px;
+    }
+
     .cbox{
         position: absolute;
         width: 100%;
@@ -82,18 +97,7 @@
         height: 100%; 
     }
     
-    .rbox{
-        display: block;
-        position: absolute;
-        top:50%;
-        height:56px;
-        width: 30px;
-        margin-top:-28px;
-        line-height: 1;
-        cursor: pointer;
-        z-index:3;
-        right:40px;
-    }
+
 
     .tips{
         color: #fff;
@@ -129,7 +133,6 @@
     //     }
     // ]
 
-    let global_location_data = {};
     export default
     {
         name : 'play_pic',
@@ -142,7 +145,7 @@
         },
         data()
         {
-            return {
+            return{
                 "current_pos" : this.select || 0,
                 "son_data" : this.son
             }
@@ -166,17 +169,19 @@
                 }
             };
         },
-
         components:
         {
           
         },
         computed:
         {
-            "count":function () {
+            "count":function () 
+            {
                 return this.image_list.length || 0;
             },
-            "test_num":function () {
+
+            "test_num":function () 
+            {
                 return 66;
             }
 
@@ -186,21 +191,23 @@
             "select":function ()
              {
                 this.current_pos = this.select || 0;
-                console.log(this.select);
+                // console.log(this.select);
             },
 
             "current_pos":function () 
             {
                 var self = this;
-                if(self.current_pos < 0) 
+                if(self.current_pos < 0)
+                {
                     self.current_pos = 0;
+                } 
                 else if(self.current_pos > self.count-1)
                 {
                     self.current_pos = self.count-1;
                 }
                 self.son_data++;
-                console.log(self.son_data);
-                self.$emit("update:father", this.son_data);
+                // console.log(self.son_data);
+                self.$emit("update:son", this.son_data);
                 // this.$emit("update:select",this.current_pos);
             }
         },
@@ -220,7 +227,8 @@
                 {
                     this.current_pos++;
                 }
-                else{
+                else
+                {
                     this.current_pos--;
                 }
             }

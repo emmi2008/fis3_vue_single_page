@@ -82,8 +82,8 @@
             "father":function ()
              {
                 var self = this;
-                console.log("触发父页面");
-                console.log(self.father);
+                // console.log("触发父页面");
+                // console.log(self.father);
             },
         },
 
@@ -91,7 +91,6 @@
         {
             var self = this;
             var img_arr = $('[data-role="img"]');
-
             img_arr.each(function(index, val) {
                 self.pic_list.push({
                     image : $(val).attr('src')
@@ -119,6 +118,7 @@
                 var self = this;
                 self.is_show = false;
             },
+
         },
         components: 
         {
