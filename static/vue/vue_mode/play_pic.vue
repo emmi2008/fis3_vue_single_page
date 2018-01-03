@@ -10,7 +10,7 @@
         </div>
 
         <div class="tips">
-            <span v-text="current_pos+1"></span>/<span v-text="count"></span>
+            <span v-text="current_pos+1"></span>/<span v-text="count"></span> 
         </div>
 
         <div class="cbox">
@@ -119,8 +119,7 @@
 </style>
 
 <script type='text/babel'>
-
-    // 数组格式
+    // 图片数组格式
     // [
     //     {
     //         "image" :"******"
@@ -130,7 +129,6 @@
     //     }
     // ]
 
-
     let global_location_data = {};
     export default
     {
@@ -139,20 +137,26 @@
         {
             "select" : Number,
             "image_list" : Array,
-            "is_show"  : Boolean
+            "is_show"  : Boolean,
+            "son"  : Number
         },
+        data()
+        {
+            return {
+                "current_pos" : this.select || 0,
+                "son_data" : this.son
+            }
+        },
+
         mounted()
         {
             var self = this;
-
-            console.log(this.select);
-
+            console.log(this.son);
             document.onkeydown=function(event){
                 var e = event || window.event || arguments.callee.caller.arguments[0];
                 if(e && e.keyCode==37)
                 {   
                     // console.log("左键");
-                    //左键
                     self.current_pos--;
                 }
                 if(e && e.keyCode==39)
@@ -162,12 +166,7 @@
                 }
             };
         },
-        data()
-        {
-            return {
-                "current_pos" : this.select || 0
-            }
-        },
+
         components:
         {
           
@@ -176,13 +175,14 @@
         {
             "count":function () {
                 return this.image_list.length || 0;
+            },
+            "test_num":function () {
+                return 66;
             }
 
         },
 
-
         watch:{
-
             "select":function ()
              {
                 this.current_pos = this.select || 0;
@@ -198,10 +198,12 @@
                 {
                     self.current_pos = self.count-1;
                 }
+                self.son_data++;
+                console.log(self.son_data);
+                self.$emit("update:father", this.son_data);
                 // this.$emit("update:select",this.current_pos);
             }
         },
-
 
         methods :
         {
